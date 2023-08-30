@@ -3,10 +3,17 @@
     margin: 0;
     padding: 0;
   }
-  .text-center {
-    text-align: center;
+
+.text-center {
+  text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300vh; 
   }
-  
   
   body {
     background-color: #c7eff6;
@@ -28,6 +35,8 @@
     font-size: 16px;
     margin-bottom: 15px;
   }
+
+
   
 
 
