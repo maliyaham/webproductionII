@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Changes</title>
+</head>
+<body>
+    <h1>Conditional Changes</h1>
+    <label for="userInput">Enter a number (1-6): </label>
+    <input type="number" id="userInput">
+    <button onclick="makeChanges()">Submit</button>
+
+    <script>
+        function makeChanges() {
+            var userInput = parseInt(document.getElementById('userInput').value);
+
+            if (userInput === 1) {
+                document.body.style.backgroundColor = 'lightblue';
+            } else if (userInput === 2) {
+                document.body.style.backgroundColor = 'lightgreen';
+            } else if (userInput === 3) {
+                document.body.style.backgroundColor = 'lightcoral';
+            } else if (userInput === 4) {
+                document.body.style.fontFamily = 'Courier New, monospace';
+            } else if (userInput === 5) {
+                document.body.style.fontSize = '24px';
+            } else if (userInput === 6) {
+                document.body.innerHTML = '<h1>Content replaced!</h1>';
+            } else {
+                alert('Invalid input. Please enter a number between 1 and 6.');
+            }
+        }
+    </script>
+</body>
+</html>
