@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .custom-controls button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .custom-controls button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="myVideo" controls>
+            <source src="two_weeks.mp4" type="video/mp4">
+            <source src="my_video.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="custom-controls">
+            <button id="playButton">Play</button>
+            <button id="muteButton">Mute</button>
+        </div>
+    </div>
+
+    <script>
+        
+        const video = document.getElementById('myVideo');
+        const playButton = document.getElementById('playButton');
+        const muteButton = document.getElementById('muteButton');
+
+        
+        playButton.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                playButton.textContent = 'Play';
+            }
+        });
+
+        muteButton.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                muteButton.textContent = 'Mute';
+            } else {
+                video.muted = true;
+                muteButton.textContent = 'Unmute';
+            }
+        });
+    </script>
+</body>
+</html>
