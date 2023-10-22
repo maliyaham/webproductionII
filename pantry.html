@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantry</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+            function handleFormSubmit(event) {
+                event.preventDefault(); 
+    
+                
+                var ingredients = document.getElementById('ingredients').value;
+    
+                alert('You entered: ' + ingredients);
+            }
+
+            var searchForm = document.getElementById('searchForm');
+            searchForm.addEventListener('submit', handleFormSubmit);
+        });
+    </script>
+     
+    <style>
+        body {
+            background-color: #d8f6ff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #7396ff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px; 
+    height: auto; 
+}
+
+        
+
+        .search-bar {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #7396ff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5a7bcf;
+        }
+
+        main {
+            padding: 20px;
+        }
+        .blog-posts {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .blog-post {
+            margin-bottom: 20px;
+        }
+
+        .blog-post h2 {
+            margin-bottom: 10px;
+        }
+
+        .blog-post p {
+            font-size: 16px;
+        }
+        .header-image {
+            max-width: 500px;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#">Profile</a>
+        <img src="pantrylogo.png" alt="Logo" class="logo">
+        <nav>
+            <a href="favorites.html">Favorites</a>
+            <a href="#">Blog</a>
+            <a href="#">About Us</a>
+        </nav>
+    </header>
+    <img class="header-image" src="pantrylogo2.png" alt="Header Image">
+
+    <div class="search-bar">
+        <form id="searchForm">
+            <input type="text" id="ingredients" placeholder="Enter ingredients...">
+            <input type="submit" value="Find Recipes">
+        </form>
+    </div>
+    <section class="blog-posts">
+        <div class="blog-post">
+            <h2>Delicious Pasta Recipe</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </div>
+        <div class="blog-post">
+            <h2>Healthy Salad Ideas</h2>
+            <p>Nulla facilisi. Etiam viverra magna vitae lacus tempus...</p>
+        <div class="blog-post">
+            <h3>Healthy Salad Ideas</h3>
+            <p>Nulla facilisi. Etiam viverra magna vitae lacus tempus...</p>
+        </div>
+        
+    </section>
+
+    <main>
+        <!-- Content goes here -->
+    </main>
+</body>
+</html>
