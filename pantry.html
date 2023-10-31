@@ -1,24 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry</title>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     
-            function handleFormSubmit(event) {
-                event.preventDefault(); 
-    
-                
-                var ingredients = document.getElementById('ingredients').value;
-    
-                alert('You entered: ' + ingredients);
-            }
+    function handleFormSubmit(event) {
+        event.preventDefault(); 
 
-            var searchForm = document.getElementById('searchForm');
-            searchForm.addEventListener('submit', handleFormSubmit);
+        
+        var ingredients = document.getElementById('ingredients').value;
+
+        
+        var apiKey = '23a6738f5a9f4f439912caa24433a79d';
+        var apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}`;
+
+        $.ajax({
+            url: apiUrl,
+            method: 'GET',
+            success: function(data) {
+               
+                var recipesContainer = document.getElementById('recipesContainer');
+                recipesContainer.innerHTML = '';
+
+                data.forEach(function(recipe) {
+                    var recipeElement = document.createElement('div');
+                    recipeElement.classList.add('recipe');
+
+                    var title = document.createElement('h2');
+                    title.textContent = recipe.title;
+
+                    var ingredientsList = document.createElement('ul');
+                    recipe.usedIngredients.forEach(function(ingredient) {
+                        var listItem = document.createElement('li');
+                        listItem.textContent = ingredient.name;
+                        ingredientsList.appendChild(listItem);
+                        
+                    });
+
+                    recipeElement.appendChild(title);
+                    recipeElement.appendChild(ingredientsList);
+
+                    recipesContainer.appendChild(recipeElement);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', status, error);
+            }
         });
+    }
+
+  
+    var searchForm = document.getElementById('searchForm');
+    searchForm.addEventListener('submit', handleFormSubmit);
+});
+
+
     </script>
      
     <style>
@@ -117,23 +157,15 @@
             <input type="submit" value="Find Recipes">
         </form>
     </div>
-    <section class="blog-posts">
-        <div class="blog-post">
-            <h2>Delicious Pasta Recipe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-        </div>
-        <div class="blog-post">
-            <h2>Healthy Salad Ideas</h2>
-            <p>Nulla facilisi. Etiam viverra magna vitae lacus tempus...</p>
-        <div class="blog-post">
-            <h3>Healthy Salad Ideas</h3>
-            <p>Nulla facilisi. Etiam viverra magna vitae lacus tempus...</p>
-        </div>
+
         
     </section>
+    <div id="recipesContainer">
+
+    </div>
 
     <main>
-        <!-- Content goes here -->
+        
     </main>
 </body>
 </html>
