@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor's Highest Grossing Movies</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding-top: 80px; 
+        }
+
+        header {
+            background-color: #4c72af;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            color: #fffbfb;
+            text-align: center;
+            margin-top: 20px; 
+        }
+
+        #actorDropdown {
+            margin-bottom: 20px;
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4c72af;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        
+        #buttonContainer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        
+        #movieLookupButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4c72af;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+<header>
+    <h1>Actor's Highest Grossing Movies</h1>
+</header>
+
+
+<select id="actorDropdown" onchange="displayActorMovies()">
+    <option value="Actor 1">Leonardo Dicaprio</option>
+    <option value="Actor 2">Tom Hanks</option>
+    <option value="Actor 3">Denzel Washington</option>
+    <option value="Actor 4">Joaquin Phoenix</option>
+    <option value="Actor 5">Margot Robbie</option>
+    <option value="Actor 6">Viola Davis</option>
+    <option value="Actor 7">Johnny Depp</option>
+    <option value="Actor 8">Lupita Nyong'o</option>
+    <option value="Actor 9">Will Smith</option>
+</select>
+
+
+<table id="actorMoviesTable">
+    <tr>
+        <th>Movie Title</th>
+        <th>Revenue</th>
+    </tr>
+</table>
+
+
+<div id="buttonContainer">
+    <button id="movieLookupButton" onclick="navigateToMovieLookup()">Movie Search</button>
+</div>
+
+<script>
+    const actorMoviesData = {
+        'Actor 1': [
+            { movie_title: 'Inception', revenue: '$839 million' },
+            { movie_title: 'The Revenant', revenue: '$500 million' },
+            { movie_title: 'Django Unchained', revenue: '$449 million' },
+        ],
+        'Actor 2': [
+            { movie_title: 'Toy Story 4', revenue: '$1.07 billion' },
+            { movie_title: 'Toy Story 3', revenue: '$1.06 billion' },
+            { movie_title: 'Saving Private Ryan', revenue: '$482 million' },
+        ],
+        'Actor 3': [
+            { movie_title: 'American Gangster', revenue: '$266 million' },
+            { movie_title: 'Safe House', revenue: '$208 million' },
+            { movie_title: 'Philadelphia', revenue: '$207 million' },
+        ],
+        'Actor 4': [
+            { movie_title: 'Joker', revenue: '$1.07 billion' },
+            { movie_title: 'Gladiator', revenue: '$709 million' },
+            { movie_title: '3 Signs', revenue: '$641 million' },
+        ],
+        'Actor 5': [
+            { movie_title: 'Barbie', revenue: '$1.4 million' },
+            { movie_title: 'Suicide Squad', revenue: '$747 million' },
+            { movie_title: 'The Wolf of Wall Street', revenue: '$389 million' },
+        ],
+        'Actor 6': [
+            { movie_title: 'Suicide Squad', revenue: '$747 million' },
+            { movie_title: 'Knight and Day', revenue: '$262 million' },
+            { movie_title: 'The Help', revenue: '$216 million' },
+        ],
+        'Actor 7': [
+            { movie_title: 'Pirates of the Caribbean: Dead Mans Chest', revenue: '$1.06 billion' },
+            { movie_title: 'Alice in Wonderland', revenue: '$1.02 billion' },
+            { movie_title: 'Charlie and the Chocolate Factory', revenue: '$475 million' },
+        ],
+        'Actor 8': [
+            { movie_title: 'Star Wars: The Force Awakens', revenue: '$2.07 billion' },
+            { movie_title: 'Black Panther', revenue: '$1.34 billion' },
+            { movie_title: 'Star Wars: The Last Jedi', revenue: '$1.34 billion' },
+        ],
+        'Actor 9': [
+            { movie_title: 'Aladdin', revenue: '$1.05 billion' },
+            { movie_title: 'Independence Day', revenue: '$817 million' },
+            { movie_title: 'Men in Black III', revenue: '$654 million' },
+        ],
+    };
+
+    function displayActorMovies() {
+        const selectedActor = document.getElementById('actorDropdown').value;
+        const table = document.getElementById('actorMoviesTable');
+       
+        table.innerHTML = '<tr><th>Movie Title</th><th>Revenue</th></tr>';
+    
+        
+        actorMoviesData[selectedActor].forEach(movie => {
+            const row = table.insertRow();
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+
+            cell1.textContent = movie.movie_title;
+            cell2.textContent = movie.revenue;
+        });
+    }
+    function navigateToMovieLookup() {
+        window.location.href = 'movie_lookup.html';
+    }
+</script>
+
+</body>
+</html>
+

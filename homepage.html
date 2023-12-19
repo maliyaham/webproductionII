@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Homepage</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+        }
+
+        header {
+            background-color: #4c72af;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            color: #f9f9f9;
+            text-align: center;
+            padding: 70px 20px 20px; 
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #333;
+        }
+
+        #scrollingPostersContainer {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .poster {
+            width: 200px; 
+            height: auto; 
+            margin-right: 20px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease-in-out;
+            animation: scroll 30s linear infinite; 
+        }
+
+        .poster:hover {
+            opacity: 1;
+            animation-play-state: paused; 
+        }
+
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%); 
+            }
+        }
+
+        
+        #actorsButton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4c72af;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+<header>
+    <h1>Welcome to Movie World!</h1>
+    <nav>
+        <a href="movie_lookup.html">Plot Search</a>
+        <a href="actors.html">Actors Info</a>
+        <a href="homepage.html">Home</a>
+    </nav>
+</header>
+
+
+<h1>Welcome to Movie World!</h1>
+
+
+<div id="scrollingPostersContainer">
+    <img src="joker.jpg" alt="Movie Poster 1" class="poster">
+    <img src="inception.jpg" alt="Movie Poster 2" class="poster">
+    <img src="barbie.jpg" alt="Movie Poster 3" class="poster">
+    <img src="blackpanther.jpg" alt="Movie Poster 4" class="poster">
+    <img src="starwars.jpg" alt="Movie Poster 5" class="poster">
+    <img src="oppenheimer.jpg" alt="Movie Poster 6" class="poster">
+    <img src="knight.jpg" alt="Movie Poster 7" class="poster">
+    <img src="toystory.jpg" alt="Movie Poster 8" class="poster">
+    <img src="fnaf.jpg" alt="Movie Poster 9" class="poster">
+    <img src="revenant.jpg" alt="Movie Poster 10" class="poster">
+    <img src="joker.jpg" alt="Movie Poster 1" class="poster">
+    <img src="inception.jpg" alt="Movie Poster 2" class="poster">
+    <img src="barbie.jpg" alt="Movie Poster 3" class="poster">
+    <img src="blackpanther.jpg" alt="Movie Poster 4" class="poster">
+    <img src="starwars.jpg" alt="Movie Poster 5" class="poster">
+    <img src="oppenheimer.jpg" alt="Movie Poster 6" class="poster">
+    <img src="knight.jpg" alt="Movie Poster 7" class="poster">
+    <img src="toystory.jpg" alt="Movie Poster 8" class="poster">
+    <img src="fnaf.jpg" alt="Movie Poster 9" class="poster">
+    <img src="revenant.jpg" alt="Movie Poster 10" class="poster">
+    <img src="joker.jpg" alt="Movie Poster 1" class="poster">
+    <img src="inception.jpg" alt="Movie Poster 2" class="poster">
+    <img src="barbie.jpg" alt="Movie Poster 3" class="poster">
+    <img src="blackpanther.jpg" alt="Movie Poster 4" class="poster">
+    <img src="starwars.jpg" alt="Movie Poster 5" class="poster">
+    <img src="oppenheimer.jpg" alt="Movie Poster 6" class="poster">
+    <img src="knight.jpg" alt="Movie Poster 7" class="poster">
+    <img src="toystory.jpg" alt="Movie Poster 8" class="poster">
+    <img src="fnaf.jpg" alt="Movie Poster 9" class="poster">
+    <img src="revenant.jpg" alt="Movie Poster 10" class="poster">
+    <img src="joker.jpg" alt="Movie Poster 1" class="poster">
+    <img src="inception.jpg" alt="Movie Poster 2" class="poster">
+    <img src="barbie.jpg" alt="Movie Poster 3" class="poster">
+    <img src="blackpanther.jpg" alt="Movie Poster 4" class="poster">
+    <img src="starwars.jpg" alt="Movie Poster 5" class="poster">
+    <img src="oppenheimer.jpg" alt="Movie Poster 6" class="poster">
+    <img src="knight.jpg" alt="Movie Poster 7" class="poster">
+    <img src="toystory.jpg" alt="Movie Poster 8" class="poster">
+    <img src="fnaf.jpg" alt="Movie Poster 9" class="poster">
+    <img src="revenant.jpg" alt="Movie Poster 10" class="poster">
+</div>
+</div>
+<a href="actors.html" id="actorsButton">Explore Actors</a>
+
+</body>
+</html>
+
+
